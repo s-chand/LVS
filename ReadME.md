@@ -13,3 +13,4 @@
 
 > I tried using angular Material but the learning curve is ridiculously steep for me right now.
 >It's by no mean complete but it works for my purposes. I'll continue to refine as it's my business *tongue out*
+> You can contribute in anyway by helping me write readmes. That way, it becomes your business
