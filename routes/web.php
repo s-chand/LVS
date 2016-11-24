@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', function() {
+    return view('index');
 });
+Route::get('/parcels', 'LandRecordsController@getLandInfo');
+Route::get('/api/land/show/{id}','LandVerificationController@show');
+Route::group(array('prefix'=>'api'),function(){
+  Route::resource('land','LandVerificationController',['parameters'=>['show'=>'id']]);//,array('only'=>array('index','show')));
+});
+Route::get('{any}', function ($any) {
+      return view('index');
+    })->where('any', '.*');
