@@ -10,6 +10,11 @@
 * Angular JS
 * UI Bootstrap
 * Bootstrap CSS
+* OpenLayers API
+* LeafletJS
+* DEP deployment tool
+* Angular-UI
 
 > I tried using angular Material but the learning curve is ridiculously steep for me right now.
+> I've managed to successfully load a geoserver layer instance and bypassed the CORS issues. *Sigh*
 >It's by no mean complete but it works for my purposes. I'll continue to refine as it's my business *tongue out*

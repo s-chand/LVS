@@ -1,4 +1,4 @@
-angular.module('LandCtrl',['LandVerificationService','ui.bootstrap','ngAnimate','ngRoute','ngSanitize','angular-toArrayFilter']);
+angular.module('LandCtrl',['LandVerificationService','ui.bootstrap','ngAnimate','ngRoute','ngSanitize','openlayers-directive']);
 angular.module('LandCtrl').controller('LandVerificationController',function($scope,$uibModal,$log,LandVerification){
   $scope.LandData={};//LandVerification.get();
   $scope.loading=true;
@@ -31,7 +31,6 @@ angular.module('LandCtrl').controller('LandVerificationController',function($sco
     });
   };
 
-
   /**
   * UI Bootstrap Modal used here
   */
@@ -56,7 +55,7 @@ angular.module('LandCtrl').controller('LandVerificationController',function($sco
       appendTo: parentElem,
       resolve: {
         items: function () {
-          //$log.log($scope.items);
+          $log.log($scope.items);
           return $ctrl.items;
         },
         item: function(){
@@ -78,12 +77,6 @@ angular.module('LandCtrl').controller('LandVerificationController',function($sco
     $scope.$item = $item;
     $scope.$model = $model;
     $scope.$label = $label;
-    // Implement other logics
-    //$scope.$selected = $item;
-    //$log.log($item);
-    //$log.log($model);
-
-
   };
 });
 
@@ -103,12 +96,21 @@ angular.module('LandCtrl').controller('ModalInstanceCtrl', function ($uibModalIn
   $ctrl.cancel = function () {
     $uibModalInstance.dismiss('cancel');
   };
-  /**
-  * OnSelect for TypeAhead
-  * @param  {[type]} $item  [description]
-  * @param  {[type]} $model [description]
-  * @param  {[type]} $label [description]
-  * @return {[type]}        [description]
-  */
-
 });
+angular.module("LandCtrl").controller("GeoJSONController", [ '$scope', '$http', 'olData', function($scope, $http, olData) {
+        angular.extend($scope, {
+            nigeria: {
+                lat: 7.7573657, //7.7573657,6.6723886
+                lon: 6.6723886, //11.7053506,9.677865
+                zoom: 8
+            },
+            wms: {
+                source: {
+                    type: 'ImageWMS',
+                    url: 'http://localhost:8085/geoserver/king/wms',
+                    params: {LAYERS: 'king:cadastre_object'}
+                }
+            }
+        });
+
+      } ]);

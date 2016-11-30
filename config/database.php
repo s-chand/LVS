@@ -69,8 +69,8 @@ return [
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', 'localhost'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'sola'),
+            'port' => env('DB_PORT', '5433'),
+            'database' => env('DB_DATABASE', 'SLTRPortal'),
             'username' => env('DB_USERNAME', 'postgres'),
             'password' => env('DB_PASSWORD', 'admin1'),
             'charset' => 'utf8',
