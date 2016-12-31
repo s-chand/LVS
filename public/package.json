@@ -1,0 +1,28 @@
+{
+  "name": "lvs",
+  "version": "1.0.0",
+  "description": "Land Verification Service",
+  "main": "application.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s-chand/LVS.git"
+  },
+  "keywords": [
+    "land",
+    "opendata",
+    "land",
+    "administration"
+  ],
+  "author": "Samuel Okoroafor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/s-chand/LVS/issues"
+  },
+  "homepage": "https://github.com/s-chand/LVS#readme",
+  "dependencies": {
+    "angular": "^1.6.1"
+  }
+}
