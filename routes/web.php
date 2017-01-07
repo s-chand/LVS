@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::get('/land/verify','LandDataController@index');
+Route::post('/land/search', 'LandDataController@search');

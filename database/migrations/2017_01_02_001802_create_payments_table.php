@@ -13,8 +13,12 @@ class CreatePaymentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_payments', function (Blueprint $table) {
+        Schema::create('payments', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('status');
+            $table->string('trans_reference');
+            $table->timestamp('service_id');
+            $table->integer('customer_id');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreatePaymentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_payments');
+        Schema::dropIfExists('payments');
     }
 }

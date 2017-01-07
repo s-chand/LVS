@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserSearchTable extends Migration
+class CreateServices extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateUserSearchTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_searches', function (Blueprint $table) {
+        Schema::create('services', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('search_text');
-            $table->timestamp('search_time');
-            $table->integer('search_user_id');
+            $table->string('service_name');
+            $table->string('service_desc');
+            $table->decimal('amount');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateUserSearchTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_searches');
+        Schema::dropIfExists('services');
     }
 }

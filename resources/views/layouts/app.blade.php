@@ -77,6 +77,9 @@
                 </div>
             </div>
         </nav>
+        @if (Auth::guest())
+            <div></div>
+        @else
         <div class="container">
           <div class="row">
             <div class="col-md-4">
@@ -102,6 +105,7 @@
                 </div>
               </div>
             </div>
+              @endif
         @yield('content')
       </div>
     </div>

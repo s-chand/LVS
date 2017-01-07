@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Land extends Model
+class Payments extends Model
 {
-    // Call the database searches here
+    //
 }
