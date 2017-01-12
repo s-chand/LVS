@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\RedirectResponse;
 
-class LandDataController extends Controller
+class DashboardController extends Controller
 {
     /**
      * index function summary
@@ -23,7 +23,7 @@ class LandDataController extends Controller
      */
     public function index()
     {
-        return view('landsearch')->with('result', array());
+        return view('landsearch');
     }
 
     public function search()
@@ -39,12 +39,13 @@ class LandDataController extends Controller
             $search_text = Input::get('parcel_number');
             $result = $this->getSearchResults($search_text);
             $this->logLandSearch($id, $search_text, $date_time);//Log this query
-            return view('landsearch')->with('result', $result);
+            //return view('landsearch')->with('result', $result);
+            return redirect('/land/verify')->with('result',$result);
         }
     }
 
 
-    public function logLandSearch($user_id, $search_text, $search_time)
+    protected function logLandSearch($user_id, $search_text, $search_time)
     {
         $search = new Searches;
         $search->search_text = $search_text;
@@ -53,7 +54,7 @@ class LandDataController extends Controller
         $search->save();
     }
 
-    public function getSearchResults($search_text)
+    protected function getSearchResults($search_text)
     {
         $data = array('1' => '93', '2' => '1991');
         return $data;

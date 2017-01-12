@@ -10,14 +10,16 @@
           <div class="col-xs-8 col-xs-offset-2">
 
             <!-- Default panel contents -->
-            <form class="" action="{{url('/')}}/land/search" method="post">
-              {{ csrf_field() }}
-              <div class="col-lg-8">
+            <form id="searchform">
+              <div class="col-lg-10">
                 <div class="input-group">
-                  <input type="text" name="parcel_number" class="form-control input-group-lg"
-                         placeholder="Enter Parcel Number...">
+                  <div class="form-group label-floating">
+                    {{csrf_field()}}
+                    <label class="control-label">Enter Parcel Number</label>
+                    <input type="text" class="form-control" name="parcel_number" id="parcel_number" autocomplete="off">
+                  </div>
                   <span class="input-group-btn">
-                    <input class="btn btn-primary" type="submit" value="Go!">
+                    <input id="searchParcel" class="btn btn-primary" type="submit" value="Go!">
                   </span>
                 </div><!-- /input-group -->
               </div>
@@ -29,18 +31,7 @@
     <div class="panel panel-primary">
       <div class="panel-heading">Search results</div>
         <div class="panel-body">
-          @if ($result)
-            @foreach ($result as $value)
-              <div class="panel panel-success">
-                <div class="panel-body">
-                  <label>Parcel Number:</label> <span class="h4">{{$value}}</span>
-                </div>
-              </div>
-            @endforeach
-          @elseif (!$result)
-            No results to show.
-          @endif
-
+            <div id="result">No results to show.</div>
         </div>
     </div>
   </div>

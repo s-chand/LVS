@@ -3,7 +3,6 @@
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Illuminate\Http\ResponseRedirect;
 
 
 class LandDataControllerTest extends TestCase
@@ -15,21 +14,10 @@ class LandDataControllerTest extends TestCase
      */
     public function testIndex()
     {
-        Auth::shouldReceive('check')->once()->andReturn(false);
-        $response = $this->call('GET', 'home');
-        //$this->assertRedirectedTo('login');
-        $this->assertFalse($response->isOk());
+        $credentials = [ 'email' => 'RtS0f0IbU7@gmail.com', 'password' => 'secret' ];
+        Auth::shouldReceive('attempt')->once()->with($credentials, true)->andReturn(true);
+        $this->call('GET', '/land/verify');
+        $this->assertRedirectedToRoute('login');
+        }
 
-        // Make sure you've been redirected.
-        //$this->assertTrue($response->isRedirection());
-    }
-
-    public function testUserIsAuthenticated()
-    {
-        Auth::shouldReceive('check')->once()->andReturn(true);
-
-        $this->call('GET', 'home');
-
-        $this->assertResponseOk();
-    }
 }

@@ -11,12 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function (){
+    return view('index');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
-Route::get('/land/verify','LandDataController@index');
-Route::post('/land/search', 'LandDataController@search');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home/dashboard', 'HomeController@index'); //Dashboard Controller
+    Route::get('/home/search/land', 'HomeController@search');
+    Route::get('/land/search/{parcel_number}', 'ParcelController@show');
+});

@@ -17,4 +17,7 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
-Route::get('/parcel/{parcel_number}','LandDataController@search');
+Route::resource('submit','FeedbackController',['only'=>['index',
+    'store'
+]]);
+Route::resource('search','ParcelController@show');

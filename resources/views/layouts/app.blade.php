@@ -11,7 +11,9 @@
     <title>{{ config('app.name', 'LVS') }}</title>
 
     <!-- Styles -->
-    <link href="{{url('/')}}/css/app.css" rel="stylesheet">
+    {{--<link href="{{url('/')}}/css/app.css" rel="stylesheet">--}}
+    <link href="{{url('/')}}/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="{{url('/')}}/css/material-kit.css" rel="stylesheet"/>
 
     <!-- Scripts -->
     <script>
@@ -89,7 +91,7 @@
                 </div>
                 <div class="panel-body">
                   <div class="list-group">
-                    <a href="{{url('/')}}/land/verify" class="list-group-item active">
+                    <a href="{{url('/')}}/home/search/land" class="list-group-item active">
                       <h4 class="list-group-item-heading">Land Verification Service</h4>
                       <p class="list-group-item-text">
                         This section allows you verify a property by the given property number.
@@ -105,13 +107,26 @@
                 </div>
               </div>
             </div>
+
               @endif
-        @yield('content')
+              @yield('content')
       </div>
     </div>
     </div>
 
     <!-- Scripts -->
-    <script src="{{url('/')}}/js/app.js"></script>
+    <script src="{{url('/')}}/js/jquery.min.js" type="text/javascript"></script>
+    <script src="{{url('/')}}/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="{{url('/')}}/js/material.min.js"></script>
+
+    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+    <script src="{{url('/')}}/js/nouislider.min.js" type="text/javascript"></script>
+
+    <!--  Plugin for the Datepicker, full documentation here: http://www.eyecon.ro/bootstrap-datepicker/ -->
+    <script src="{{url('/')}}/js/bootstrap-datepicker.js" type="text/javascript"></script>
+
+    <!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
+    <script src="{{url('/')}}/js/material-kit.js" type="text/javascript"></script>
+    <script src="{{url('/')}}/js/searchjs.js"></script>
 </body>
 </html>
