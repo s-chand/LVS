@@ -22,12 +22,12 @@ class SearchHandler
             /*
              * Required Data: Fullname, Phone number, parcel number, location, gps coordinates
              */
-            $sql='SELECT DISTINCT ba.name_firstpart,ba.name_lastpart,p.name,p.last_name,p.email,p.address,ba.location,ba.type_code from sltrportal.party AS p
-  inner join sltrportal.party_for_rrr AS prr on prr.party_id=p.id
-  inner join sltrportal.rrr AS r on r.id=prr.rrr_id
-  inner join sltrportal.ba_unit AS ba on ba.id=r.ba_unit_id where ba.name_firstpart = ?';
+            $sql='SELECT DISTINCT ba.name_firstpart,ba.name_lastpart,p.name,p.last_name,p.email,p.address,ba.location,ba.type_code from lvs.party AS p
+  inner join lvs.party_for_rrr AS prr on prr.party_id=p.id
+  inner join lvs.rrr AS r on r.id=prr.rrr_id
+  inner join lvs.ba_unit AS ba on ba.id=r.ba_unit_id where ba.name_firstpart = ?';
 
-            $result=DB::connection('mysql2')->select($sql,[$parcelNumber]);
+            $result=DB::select(DB::raw($sql),[$parcelNumber]);
             SearchHandler::logLandSearch($user_id,$search_text,$search_time);
             return $result;
 
