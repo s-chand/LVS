@@ -22,3 +22,4 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home/search/land', 'HomeController@search');
     Route::get('/land/search/{parcel_number}', 'ParcelController@show');
 });
+Route::post('/pay', 'PaymentController@redirectToGateway')->name('pay');
