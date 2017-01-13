@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Unicodeveloper\Paystack\Paystack;
+use Unicodeveloper\Paystack\Facades\Paystack;
 
 class PaymentController extends Controller
 {
@@ -13,8 +13,7 @@ class PaymentController extends Controller
      */
     public function redirectToGateway()
     {
-        $paystack=new Paystack();
-        return $paystack->getAuthorizationUrl()->redirectNow();
+        return Paystack::getAuthorizationUrl()->redirectNow();
     }
 
     /**

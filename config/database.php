@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql2'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'http://codingweekend.net.mysql'),
+            'host' => env('DB_HOST', 'codingweekend.net.mysql'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'codingweekend_net'),
             'username' => env('DB_USERNAME', 'codingweekend_net'),

@@ -51,6 +51,7 @@ class ParcelController extends Controller
     public function show($parcel_number)
     {
         $user=Auth::id();
+        //TODO: Introduce payment redirect here?? and come back to make request
         return json_encode(SearchHandler::searchByParcelNumber($parcel_number,Auth::id(),$parcel_number,Carbon::now()));
     }
 

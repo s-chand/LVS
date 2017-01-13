@@ -32,9 +32,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{url('/')}}"><h2>Land VS</h2></a>
+            <a class="navbar-brand" href="{{url('/')}}"><h4>Land VS</h4></a>
         </div>
-
+        @if (!Auth::check())
         <div class="collapse navbar-collapse" id="navigation-example">
             <ul class="nav navbar-nav navbar-right">
                 <li>
@@ -49,6 +49,17 @@
                 </li>
             </ul>
         </div>
+            @else
+        <div class="collapse navbar-collapse" id="navigation-example">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="btn btn-warning" href="{{url('/')}}/home/dashboard" target="_self">
+                        Dashboard
+                    </a>
+                </li>
+                </ul>
+        </div>
+            @endif
     </div>
 </nav>
 
@@ -63,7 +74,11 @@
                     <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-danger btn-raised btn-lg">
                         <i class="fa fa-play"></i> See Demo
                     </a>
+                    @if(!Auth::check())
                     <a class="btn btn-success btn-lg" href="{{url('/')}}/register">Sign up today</a>
+                        @else
+                    <a class="btn btn-success btn-lg" href="{{url('/')}}/home/dashboard">Go to Search</a>
+                        @endif
                 </div>
             </div>
         </div>
@@ -198,30 +213,30 @@
     </div>
     <footer class="footer">
         <div class="container">
-            <nav class="pull-left">
-                <ul>
-                    <li>
-                        <a href="http://www.creative-tim.com">
-                            Creative Tim
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://presentation.creative-tim.com">
-                            About Us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://blog.creative-tim.com">
-                            Blog
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.creative-tim.com/license">
-                            Licenses
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            {{--<nav class="pull-left">--}}
+                {{--<ul>--}}
+                    {{--<li>--}}
+                        {{--<a href="http://www.creative-tim.com">--}}
+                            {{--Creative Tim--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                        {{--<a href="http://presentation.creative-tim.com">--}}
+                            {{--About Us--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                        {{--<a href="http://blog.creative-tim.com">--}}
+                            {{--Blog--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                        {{--<a href="http://www.creative-tim.com/license">--}}
+                            {{--Licenses--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+                {{--</ul>--}}
+            {{--</nav>--}}
             <div class="copyright pull-right">
                 &copy; 2017, made with <i class="fa fa-heart heart"></i> by LandVS
             </div>
@@ -229,12 +244,13 @@
     </footer>
 
 </div>
+<div class="gif"><!-- Place at bottom of page --></div>
 </body>
 
 <!--   Core JS Files   -->
 {{--<script src="{{url('/')}}/js/jquery.min.js" type="text/javascript"></script>--}}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="{{url('/')}}/node_modules/angular/angular.min.js" type="text/javascript"></script>
+{{--<script src="{{url('/')}}/node_modules/angular/angular.min.js" type="text/javascript"></script>--}}
 <script src="{{url('/')}}/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="{{url('/')}}/js/material.min.js" type="text/javascript"></script>
 

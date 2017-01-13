@@ -8,10 +8,10 @@
 
           <div class="panel-body">
             <div class="container-fluid">
-              <div class="col-xs-4">
+              <div class="col-md-6">
                 <div class="panel panel-default">
                   <!-- Default panel contents -->
-                  <div class="panel-heading">Recent Searches</div>
+                  <div class="panel-heading">Searches</div>
                   <div class="panel-body">
                     <p>...</p>
                   </div>
@@ -26,12 +26,6 @@
                     </tr>
                   </table>
                 </div>
-              </div>
-              <div class="col-xs-4">
-                Favorites
-              </div>
-              <div class="col-xs-4">
-                Your Properties
               </div>
             </div>
           </div>

@@ -51,8 +51,8 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost/LVS/public'),
-    //url=>env('APP_URL','http://codingweekend.net/public'),
+    //'url' => env('APP_URL', 'http://localhost/LVS/public'),
+    'url'=>env('APP_URL','http://codingweekend.net/public'),
 
     /*
     |--------------------------------------------------------------------------

@@ -18,10 +18,11 @@ Route::get('/', function (){
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
+
     Route::get('/home/dashboard', 'HomeController@index'); //Dashboard Controller
-    Route::get('/home/search/land', 'HomeController@search');
-    Route::get('/land/search/{parcel_number}', 'ParcelController@show');
+    Route::get('/home/search/land', 'HomeController@search'); //SearchP page controls
+    Route::get('/land/search/{parcel_number}', 'ParcelController@show'); //Backend that responds to jQuery requests
 });
-//Handle payment redirects
+//Handle payment redirects for paystack
 Route::post('/pay', 'PaymentController@redirectToGateway')->name('pay');
 Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');

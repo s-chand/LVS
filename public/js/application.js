@@ -6,7 +6,8 @@ $(document).ready(function () {
         event.preventDefault();
         //Make the ajax submission
         $.ajax({
-            url: 'http://localhost/lvs/public/api/submit',
+            //url: 'http://localhost/lvs/public/api/submit',
+            url: 'http://codingweekend.net/public/api/submit',
             type: 'post',
             data: $('form#feedback').serialize(),
             success: function (result) {
